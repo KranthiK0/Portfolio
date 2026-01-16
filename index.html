@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+    ============================================
+    PORTFOLIO WEBSITE - KRANTHI KATAMOUNI
+    AI Engineer Portfolio with Modern Design
+    ============================================
+    
+    Last Updated: January 2025
+    Tech Stack: HTML5, CSS3, JavaScript (ES6+)
+    ============================================
+  -->
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e1e1f">
+  
+  <!-- SEO Meta Tags - TODO: Add Open Graph and Twitter Card meta tags for better social sharing -->
+  <meta name="description" content="Kranthi Katamouni - Artificial Intelligence Engineer specializing in RAG architectures, LLM systems, and Federated Learning. Portfolio showcasing AI/ML projects and research.">
+  <meta name="keywords" content="AI Engineer, Machine Learning, RAG, LLM, Federated Learning, Data Science, MLOps">
+  <meta name="author" content="Kranthi Katamouni">
+  
+  <title>Kranthi Katamouni - AI Engineer Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    ============================================
+    PAGE LOADER - ANIMATED LOADING SCREEN
+    ============================================
+    Shows when page first loads
+    AI-themed neural network loading animation
+    Automatically hides when page is fully loaded
+    ============================================
+  -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <div class="neural-loader">
+        <div class="neural-node"></div>
+        <div class="neural-node"></div>
+        <div class="neural-node"></div>
+        <div class="neural-node"></div>
+        <div class="neural-node"></div>
+        <div class="neural-node"></div>
+        <div class="neural-node"></div>
+        <div class="neural-node"></div>
+      </div>
+      <h2 class="loader-text">Loading Portfolio...</h2>
+      <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+    ============================================
+    ANIMATED BACKGROUND CANVAS
+    ============================================
+    Neural network particle system background
+    Creates animated particles with connecting lines
+    Initialized in script.js via initBackgroundCanvas()
+    ============================================
+  -->
+  <canvas id="bgCanvas" class="bg-canvas"></canvas>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      ============================================
+      SIDEBAR - PROFILE CARD
+      ============================================
+      Displays on About page only
+      Auto-hides when viewing Resume, Portfolio, Articles, or Contact
+      Contains: Name, Title, Contact Information
+      Toggle button expands/collapses contact details
+      ============================================
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <div class="avatar-placeholder">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </div>
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Kranthi Katamouni">Kranthi Katamouni</h1>
+
+          <p class="title">Artificial Intelligence Engineer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span> Reach Me @ </span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:kranthigoud975@gmail.com" class="contact-link">kranthigoud975@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="logo-Linkedin"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Linkedin</p>
+
+              <a href="https://www.linkedin.com/in/kranthi-katamouni/?trk=opento_sprofile_topcard" class="contact-link">kranthi-katamouni</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="logo-github"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Github</p>
+
+              <a href="https://github.com/KranthiK0" class="contact-link">KranthiK0</a>
+            </div>
+
+          </li>
+
+
+
+        </ul>
+
+        <div class="separator"></div>
+
+        
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      ============================================
+      MAIN CONTENT AREA
+      ============================================
+      Contains all page sections (About, Resume, Portfolio, Articles, Contact)
+      Only one section visible at a time (controlled by JavaScript)
+      ============================================
+    -->
+
+    <div class="main-content">
+
+      <!--
+        ============================================
+        NAVIGATION BAR
+        ============================================
+        Fixed position: Bottom on mobile, Top-right on desktop
+        Navigation between different portfolio sections
+        Active state highlights current section
+        ============================================
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Articles</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        ============================================
+        ABOUT PAGE
+        ============================================
+        Landing page with AI hero section
+        Contains: Hero visual, About text, Services, Expertise cards
+        Default active page on load
+        ============================================
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <!-- 
+          ============================================
+          AI HERO SECTION
+          ============================================
+          Animated AI brain visual with neural particles
+          Tagline and subtitle for visual impact
+          Rotating gradient background animation
+          ============================================
+        -->
+        <section class="ai-hero">
+          <div class="ai-visual">
+            <img src="./assets/images/ai-brain.svg" alt="AI Brain" class="hero-brain">
+            <div class="neural-particles" id="neuralParticles"></div>
+          </div>
+          <div class="ai-hero-text">
+            <h3 class="hero-tagline">Building Intelligence Through Data</h3>
+            <p class="hero-subtitle">Transforming complex data into intelligent systems</p>
+          </div>
+        </section>
+
+        <section class="about-text">
+          <p>
+            I'm an <strong>Artificial Intelligence Engineer</strong> specializing in production-grade AI systems, <strong>RAG architectures</strong>, 
+            and <strong>agentic applications</strong>. Holding   Master's Degree  in Computer Science from Ohio University, I focus on 
+            deploying Scalable and Robust LLM-powered solutions on Kubernetes with end-to-end ML pipelines from data ingestion to inference.
+          </p>
+
+          <p>
+            My expertise spans <strong>Vector Search</strong>, <strong>Embedding Models</strong>, and advanced retrieval techniques for building 
+            intelligent systems that deliver scalable, reliable AI products optimized for real-world impact. I work extensively with 
+            <strong>OpenAI, Gemini , other Enterprise Open Source Hosted Model APIs to deliver efficient and quick go to solutions, customized model starting from scratch to inference for specific solutions</strong>, implementing agentic AI frameworks and MLOps practices.
+          </p>
+
+          <p>
+            From engineering RAG-based clinical decision support systems to building containerized AI applications on Kubernetes, 
+            I transform complex AI concepts into production-ready solutions. My work emphasizes transparency, reliability, and 
+            measurable business impact through advanced AI technologies.
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">Core Expertise</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/neural-network.svg" alt="Neural Networks" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">RAG & LLM Systems</h4>
+
+                <p class="service-item-text">
+                  Building production grade RAG architectures with vector databases, hybrid search, and advanced retrieval 
+                  techniques using OpenAI, Gemini, and Claude APIs , Enterprise Hosted Open Source  Model APIs for  AI applications.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/data-science.svg" alt="Agentic AI" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Agentic AI Applications</h4>
+
+                <p class="service-item-text">
+                  Developing intelligent agentic systems that autonomously execute complex workflows, integrate 
+                  APIs, and deliver actionable insights with minimal human intervention.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/ai-brain.svg" alt="MLOps" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Kubernetes & MLOps</h4>
+
+                <p class="service-item-text">
+                  Deploying containerized AI applications using docker on Kubernetes with CI/CD pipelines, implementing 
+                  end-to-end ML workflows from data ingestion to production inference.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/deep-learning.svg" alt="Deep Learning" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Deep Learning & Research</h4>
+
+                <p class="service-item-text">
+                  Architecting federated learning systems, LSTM networks, and Graph Neural Networks for 
+                  distributed training, time-series forecasting, and anomaly detection.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+    
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <!-- <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div> -->
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        
+      </article>
+
+
+
+
+
+      <!--
+        ============================================
+        RESUME PAGE
+        ============================================
+        Education timeline, Experience timeline, Skills
+        Sidebar hidden when this page is active
+        ============================================
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Ohio University</h4>
+
+              <span>Jan 2024 — June 2025</span>
+
+              <p class="timeline-text">
+                Master of Science in Computer Science with focus on Artificial Intelligence, Machine Learning, 
+                and Distributed ML Systems. Athens, OH.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Osmania University</h4>
+
+              <span>2019 — 2023</span>
+
+              <p class="timeline-text">
+                Bachelor of Engineering in Computer Science.
+                Foundation in algorithms, data structures, and software engineering.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Artificial Intelligence Engineer - Cloud2Labs</h4>
+
+              <span>Dec 2025 — Present</span>
+ 
+              <p class="timeline-text">
+                Engineered RAG-based clinical decision support system using vector databases and advanced retrieval 
+                techniques (hybrid search, RRF, CE re-ranking) to deliver transparent, source-cited responses that 
+                accelerate healthcare documentation workflows.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Software Engineer - AI/ML - Excel IT Corp</h4>
+
+              <span> Sep 2025 — Dec 2025</span>
+ 
+              <p class="timeline-text">
+                Developed AI-powered email validation system improving data accuracy by 25%. Built end-to-end invoice 
+                processing pipeline using Tesseract OCR and Python, reducing manual processing time by 30%.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Middleware Engineer (Research Assistant) - Ohio University OIT</h4>
+
+              <span>Jan 2025 — May 2025</span>
+
+              <p class="timeline-text">
+                Deployed containerized applications in production Kubernetes clusters with automated CI/CD pipelines, 
+                reducing deployment overhead by 60% through resource optimization, pod-level monitoring, and log analysis.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Machine Learning Engineer (Research Assistant) - Ohio University</h4>
+
+              <span>Jan 2024 — Dec 2024</span>
+
+              <p class="timeline-text">
+                Designed federated learning infrastructure for distributed model training on IoT sensor data. Built 
+                production anomaly detection models using BI-LSTM and Graph Neural Networks, improving model 
+                generalization by 15%.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Machine Learning Project Intern - DRDO (Defence Research)</h4>
+
+              <span>May 2022 — Aug 2022</span>
+
+              <p class="timeline-text">
+                Fine-tuned deep learning models for video action recognition using PyTorch, implementing data processing 
+                pipelines and optimization techniques to improve model accuracy by 20%.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">LLMs & RAG Systems</h5>
+                <data value="95">95%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 95%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Python & ML Frameworks</h5>
+                <data value="95">95%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 95%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Kubernetes & Docker</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Vector Databases & Embeddings</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">AWS & GCP</h5>
+                <data value="85">85%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">PyTorch & Deep Learning</h5>
+                <data value="85">85%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Agentic AI Frameworks</h5>
+                <data value="85">85%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">MLOps & CI/CD</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        ============================================
+        PORTFOLIO PAGE
+        ============================================
+        Project showcase with filtering
+        Categories: All, AI Applications, Research Publication
+        Sidebar hidden when this page is active
+        ============================================
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>AI Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Research Publication</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>AI Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Research Publication</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item active" data-filter-item data-category="ai applications">
+              <a href="https://skkadoosh.com" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/neural-network.svg" alt="Skkadoosh AI App" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Skkadoosh - AI Task Prioritization App</h3>
+
+                <p class="project-category">AI-powered task prioritization with voice-to-task conversion and automated email reminders, reducing task creation time by 80%</p>
+
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="ai applications">
+              <a href="https://github.com/KranthiK0/Assesment" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ai-brain.svg" alt="Kubernetes AI Assistant" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Kubernetes-Based AI Assistant</h3>
+
+                <p class="project-category">Flask-based AI assistant using Mistral LLM API and Kubernetes Python client to answer queries about deployed applications, pods, nodes, and cluster information through natural language processing</p>
+
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="research publication">
+              <a href="https://www.sciencedirect.com/science/article/pii/S187705092300248X" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/deep-learning.svg" alt="Research Paper" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Deep Stacked Bi-LSTM for Time-Series Forecasting</h3>
+
+                <p class="project-category">Published research on novel deep stacked Bi-LSTM architecture achieving state-of-the-art forecasting accuracy On Oil field Data </p>
+
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="research publication">
+              <a href="https://github.com/KranthiK0/Capstone_project_Report/blob/main/Approved_Final__report.pdf" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="document-text-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/data-science.svg" alt="Capstone Project Report" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Capstone Project Report</h3>
+
+                <p class="project-category">Master's capstone project report showcasing advanced AI/ML research and implementation</p>
+
+              </a>
+            </li>
+
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <!--
+        ============================================
+        ARTICLES PAGE
+        ============================================
+        Medium blog integration
+        Link to Medium profile
+        Featured articles showcase
+        TODO: Integrate Medium RSS feed for dynamic articles
+        ============================================
+      -->
+
+      <article class="articles" data-page="articles">
+
+        <header>
+          <h2 class="h2 article-title">Articles</h2>
+        </header>
+
+        <section class="articles-intro">
+          <p class="articles-description">
+            I write about <strong>Machine Learning</strong>, <strong>AI Research</strong>, <strong>Federated Learning</strong>, 
+            and <strong>LLM Systems</strong>. Check out my latest articles on Medium.
+          </p>
+          <a href="https://medium.com/@kranthigoud975" target="_blank" class="medium-link-btn">
+            <ion-icon name="logo-medium"></ion-icon>
+            <span>View All Articles on Medium</span>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </a>
+        </section>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <!-- Featured Articles - Add your Medium articles here -->
+            <li class="blog-post-item">
+              <a href="https://medium.com/@kranthigoud975" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <div class="medium-placeholder">
+                    <ion-icon name="logo-medium"></ion-icon>
+                  </div>
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Machine Learning</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2024-01-01">Latest</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Read My Articles on Medium</h3>
+
+                  <p class="blog-text">
+                    Explore my latest articles on AI, Machine Learning, Federated Learning, and LLM systems. 
+                    Click to visit my Medium profile.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        ============================================
+        CONTACT PAGE
+        ============================================
+        Contact form (currently disabled - needs backend)
+        TODO: Integrate with EmailJS, Formspree, or custom backend
+        Sidebar hidden when this page is active
+        ============================================
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title"> Email Me </h2>
+        </header>
+
+        <!-- <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="300" height="250" loading="lazy"></iframe>
+          </figure>
+        </section> -->
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffa726;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fb8c00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Brain outline -->
+  <path d="M100 20 C80 20 65 30 60 45 C55 45 45 50 45 65 C40 70 35 80 35 95 C35 110 40 120 45 125 C45 135 50 145 60 150 C65 160 75 170 90 175 C95 178 98 180 100 180 C102 180 105 178 110 175 C125 170 135 160 140 150 C150 145 155 135 155 125 C160 120 165 110 165 95 C165 80 160 70 155 65 C155 50 145 45 140 45 C135 30 120 20 100 20 Z" 
+        fill="url(#brainGradient)" opacity="0.3"/>
+  
+  <!-- Neural connections -->
+  <g stroke="url(#brainGradient)" stroke-width="2" fill="none">
+    <circle cx="70" cy="60" r="8" fill="#ffa726"/>
+    <circle cx="100" cy="50" r="8" fill="#ffa726"/>
+    <circle cx="130" cy="60" r="8" fill="#ffa726"/>
+    <circle cx="60" cy="90" r="8" fill="#fb8c00"/>
+    <circle cx="100" cy="100" r="10" fill="#fb8c00"/>
+    <circle cx="140" cy="90" r="8" fill="#fb8c00"/>
+    <circle cx="70" cy="130" r="8" fill="#f57c00"/>
+    <circle cx="100" cy="140" r="8" fill="#f57c00"/>
+    <circle cx="130" cy="130" r="8" fill="#f57c00"/>
+    
+    <!-- Connections -->
+    <line x1="70" y1="60" x2="100" y2="50" opacity="0.5"/>
+    <line x1="100" y1="50" x2="130" y2="60" opacity="0.5"/>
+    <line x1="70" y1="60" x2="60" y2="90" opacity="0.5"/>
+    <line x1="130" y1="60" x2="140" y2="90" opacity="0.5"/>
+    <line x1="60" y1="90" x2="100" y2="100" opacity="0.5"/>
+    <line x1="100" y1="50" x2="100" y2="100" opacity="0.5"/>
+    <line x1="140" y1="90" x2="100" y2="100" opacity="0.5"/>
+    <line x1="60" y1="90" x2="70" y2="130" opacity="0.5"/>
+    <line x1="100" y1="100" x2="70" y2="130" opacity="0.5"/>
+    <line x1="100" y1="100" x2="100" y2="140" opacity="0.5"/>
+    <line x1="100" y1="100" x2="130" y2="130" opacity="0.5"/>
+    <line x1="140" y1="90" x2="130" y2="130" opacity="0.5"/>
+    <line x1="70" y1="130" x2="100" y2="140" opacity="0.5"/>
+    <line x1="100" y1="140" x2="130" y2="130" opacity="0.5"/>
+  </g>
+  
+  <!-- Pulse animation circles -->
+  <circle cx="100" cy="100" r="15" stroke="#ffa726" stroke-width="2" fill="none" opacity="0.6">
+    <animate attributeName="r" from="15" to="35" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
+
+
+

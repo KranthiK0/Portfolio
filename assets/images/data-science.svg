@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffa726;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fb8c00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Chart background -->
+  <rect x="30" y="30" width="140" height="140" rx="10" fill="none" stroke="url(#dataGradient)" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Grid lines -->
+  <line x1="30" y1="70" x2="170" y2="70" stroke="#ffa726" stroke-width="1" opacity="0.2"/>
+  <line x1="30" y1="110" x2="170" y2="110" stroke="#ffa726" stroke-width="1" opacity="0.2"/>
+  <line x1="30" y1="150" x2="170" y2="150" stroke="#ffa726" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Data bars -->
+  <rect x="45" y="120" width="20" height="50" rx="3" fill="url(#dataGradient)">
+    <animate attributeName="height" values="50;70;50" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="120;100;120" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <rect x="75" y="90" width="20" height="80" rx="3" fill="url(#dataGradient)">
+    <animate attributeName="height" values="80;100;80" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="90;70;90" dur="2.5s" repeatCount="indefinite"/>
+  </rect>
+  
+  <rect x="105" y="60" width="20" height="110" rx="3" fill="url(#dataGradient)">
+    <animate attributeName="height" values="110;130;110" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="60;40;60" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <rect x="135" y="100" width="20" height="70" rx="3" fill="url(#dataGradient)">
+    <animate attributeName="height" values="70;90;70" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="100;80;100" dur="2.2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Trend line -->
+  <polyline points="55,130 85,100 115,70 145,105" 
+            stroke="#ffa726" stroke-width="3" fill="none" opacity="0.7"
+            stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="points" 
+             values="55,130 85,100 115,70 145,105;55,125 85,90 115,60 145,95;55,130 85,100 115,70 145,105" 
+             dur="3s" repeatCount="indefinite"/>
+  </polyline>
+  
+  <!-- Data points -->
+  <circle cx="55" cy="130" r="5" fill="#ffa726"/>
+  <circle cx="85" cy="100" r="5" fill="#ffa726"/>
+  <circle cx="115" cy="70" r="5" fill="#ffa726"/>
+  <circle cx="145" cy="105" r="5" fill="#ffa726"/>
+</svg>
+
+
+
