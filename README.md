@@ -13,7 +13,6 @@ A modern, responsive portfolio website showcasing expertise in Artificial Intell
 - **Neural Network Background** - Animated particle system
 - **Portfolio Sections**:
   - About Me with AI hero section
-  - Resume with timeline and skills
   - Portfolio with project filtering
   - Articles (Medium integration ready)
   - Contact form
@@ -106,10 +105,8 @@ vcard-personal-portfolio-master/
 1. **Name & Title** - Edit `index.html` line 55-57
 2. **Contact Info** - Update sidebar contact links (lines 74-114)
 3. **About Section** - Modify about text (lines 259-276)
-4. **Experience** - Update timeline items in Resume section
-5. **Skills** - Adjust skill bars and percentages
-6. **Projects** - Add/remove portfolio items
-7. **Medium Link** - Update Medium profile URL in Articles section
+4. **Projects** - Add/remove portfolio items
+5. **Medium Link** - Update Medium profile URL in Articles section
 
 ### Color Theme
 
